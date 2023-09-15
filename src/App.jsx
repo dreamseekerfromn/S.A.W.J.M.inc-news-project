@@ -1,3 +1,9 @@
+
+import { useState, useEffect } from "react";
+
+function App() {
+  return <></>;
+
 import React, { useEffect, useState } from "react";
 import Newspage from "./componets/Newspage";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
@@ -17,6 +23,7 @@ function App() {
       </div>
     </Router>
   );
+
 }
 
 export default App;
