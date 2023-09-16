@@ -82,12 +82,16 @@ function MTA() {
 
     /** if data is loaded, loaded to be true */
     useEffect(()=>{
-        if(data.length != 0 && data[0].id){
-            setLoaded(true);
-        }
-        else{
-            setLoaded(false);
-        }
+        const timeout = setTimeout(() => {
+            if(data.length != 0 && data[0].id){
+                setLoaded(true);
+            }
+            else{
+                setLoaded(false);
+            }
+        }, 3000);
+        
+        return () => clearTimeout(timeout);
     },[data]);
 
     return(
