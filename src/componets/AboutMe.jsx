@@ -67,7 +67,7 @@ const AboutMe = () => {
           <div className="card mx-4 my-4" style={{ width: "18rem" }}>
             <li className="contributers">
               <img
-                src="https://avatars.githubusercontent.com/u/131703989?s=400&u=bb295d2a70206cb17078861ff588f6eddadb2026&v=4"
+                src="https://avatars.githubusercontent.com/u/96323559?v=4"
                 alt={`Aisha Kleemoff`}
                 className="card-img-top"
               />
@@ -83,7 +83,7 @@ const AboutMe = () => {
                   </a>
                   <br />
                   <a
-                    href="https://github.com/tonesharose31"
+                    href="https://github.com/AishaCKleemoff"
                     className="card-link"
                   >
                     Github
@@ -95,16 +95,16 @@ const AboutMe = () => {
           <div className="card mx-4 my-4" style={{ width: "18rem" }}>
             <li className="contributers">
               <img
-                src="https://avatars.githubusercontent.com/u/131826413?v=4"
-                alt={`Anile Choice`}
+                src="https://media.licdn.com/dms/image/D4E03AQFGMc2mi8Ew1Q/profile-displayphoto-shrink_800_800/0/1683074821195?e=1700092800&v=beta&t=_q1eSep7h92QyNIxFgrOCImi5akIVkHFLSP7bIFpgLI"
+                alt={`Winder Joel Marte`}
                 class="card-img-top"
               />
               <div className="contributer-details-container">
                 <div className="card-body d-block">
-                  <h5 className="card-title">{`Winder `}</h5>
+                  <h5 className="card-title">{`Winder Joel Marte`}</h5>
                   <p className="card-text">Software Engineer</p>
                   <a
-                    href=""
+                    href="https://www.linkedin.com/in/winder-joel-marte-856265245/"
                     className="card-link"
                   >
                     Linkedin
@@ -123,16 +123,16 @@ const AboutMe = () => {
           <div className="card mx-4 my-4" style={{ width: "18rem" }}>
             <li className="contributers">
               <img
-                src="https://avatars.githubusercontent.com/u/131826413?v=4"
-                alt={`Anile Choice`}
+                src="https://media.licdn.com/dms/image/D4D03AQGRPPcWpKCXVQ/profile-displayphoto-shrink_400_400/0/1678115075849?e=1700092800&v=beta&t=_9XRXhkrj_Ie42PMjpkZAiTEbRWGYjhXNtSXApkubkU"
+                alt={`Michael Caldwell`}
                 class="card-img-top"
               />
               <div className="contributer-details-container">
                 <div className="card-body d-block">
-                  <h5 className="card-title">{`Michael Caldwell `}</h5>
+                  <h5 className="card-title">{`Michael Caldwell`}</h5>
                   <p className="card-text">Software Engineer</p>
                   <a
-                    href=""
+                    href="https://www.linkedin.com/in/michaelrmcaldwell5984/"
                     className="card-link"
                   >
                     Linkedin
