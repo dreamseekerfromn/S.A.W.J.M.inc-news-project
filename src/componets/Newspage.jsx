@@ -8,7 +8,7 @@ const News = ({ NEWS }) => {
     // const BUS = import.meta.env.VITE_API_KEY;
     const pageSize = 5;
 
-    const URL = `https://newsapi.org/v2/top-headlines/sources?pageSize=${pageSize}&apiKey=${NEWS}`;
+    // const URL = `https://newsapi.org/v2/top-headlines/sources?pageSize=${pageSize}&apiKey=${NEWS}`;
 
     fetch(URL, {
       method: "GET",
