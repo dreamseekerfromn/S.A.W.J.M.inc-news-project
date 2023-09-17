@@ -1,4 +1,6 @@
-export async function testAPI(){
-    const header = {method:"GET",headers:{"x-api-key":"IQbkTECZFd8rfOAqS13Mj7utmZ4sf8ZC6pqG8on5"}};
+const MTA_API_KEY = import.meta.env.VITE_MTA_X_API_KEY;
+
+export async function mtaBusApi(){
+    const header = {method:"GET",headers:{"x-api-key":MTA_API_KEY}};
     return await fetch("https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/camsys%2Fbus-alerts.json",header).catch(err => console.error(err));
 }

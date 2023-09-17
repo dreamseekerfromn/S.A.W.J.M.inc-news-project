@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { testAPI } from "../test/fetch";
+import { mtaBusApi } from "../test/fetch";
 import "./MTAHeadline.css";
 
 function MTAHeadline() {
@@ -145,14 +145,16 @@ function MTAHeadline() {
    *
    */
   async function getDataFromAPI() {
-    const resp = await testAPI();
+    const resp = await mtaBusApi();
     const json = await resp.json();
     setData([...json.entity]);
   }
 
   /** fetch data from the API */
   useEffect(() => {
-    getDataFromAPI();
+    try{
+      getDataFromAPI();
+    } catch{ err => console.error(err); }
   }, []);
 
   /** if data is loaded, loaded to be true */
