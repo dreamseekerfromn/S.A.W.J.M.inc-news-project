@@ -1,4 +1,5 @@
 import "./current-weather.css";
+import Search from "../search/search.jsx";
 
 const CurrentWeather = () => {
   return (
