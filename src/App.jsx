@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import NavBar from "./componets/NavBar"
 import AboutMe from "./componets/AboutMe";
 import NewsSearch from "./componets/NewsSearch";
+import MTA from './components/MTA'
+import MTAHeadline from './components/MTAHeadline'
 
 function App() {
   const NEWS = import.meta.env.VITE_NEWS_KEY;
