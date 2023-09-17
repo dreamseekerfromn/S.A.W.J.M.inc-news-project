@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { testAPI } from "../test/fetch";
+import "./MTAHeadline.css";
 
 function MTAHeadline() {
   /** declare state hooks */
@@ -186,7 +187,7 @@ function MTAHeadline() {
         clearInterval(timerRef2.current);
       };
     }
-  }, []);
+  }, [mounted]);
 
   useEffect(() => {
     if (singleFeed.id && loaded) {
@@ -199,8 +200,8 @@ function MTAHeadline() {
   return (
     <>
       {mounted ? (
-        <div key={singleFeed.id}>
-          {singleFeed.alert["transit_realtime.mercury_alert"].alert_type} {singleFeed.alert.header_text.translation[0].text}
+        <div key={singleFeed.id} className="flow-container">
+          <div className="flow-wrap">{singleFeed.alert["transit_realtime.mercury_alert"].alert_type} {singleFeed.alert.header_text.translation[0].text}</div>
         </div>
       ) : (
         <div>
