@@ -3,9 +3,13 @@ import Newspage from "./componets/Newspage";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import NavBar from "./componets/NavBar";
 import AboutMe from "./componets/AboutMe";
+
 import MTA from "./components/MTA";
 import MTAHeadline from "./components/MTAHeadline";
 import CurrentWeather from "./weather-components/current-weather/current-weather";
+import NewsSearch from "./componets/NewsSearch";
+import MTA from './components/MTA'
+import MTAHeadline from './components/MTAHeadline'
 
 function App() {
   const NEWS = import.meta.env.VITE_NEWS_KEY;
