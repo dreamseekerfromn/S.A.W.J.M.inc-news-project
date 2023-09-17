@@ -182,7 +182,7 @@ function MTAHeadline() {
         getDataFromAPI();
       }, 1800000);
 
-      timerRef.current = setInterval(() => setSingleFeed(Object.assign({}, data[Math.floor(Math.random() * data.length)])), 3000);
+      timerRef.current = setInterval(() => setSingleFeed(Object.assign({}, data[Math.floor(Math.random() * data.length)])), 20000);
 
       return () => {
         clearInterval(timerRef.current);
@@ -202,8 +202,10 @@ function MTAHeadline() {
   return (
     <>
       {mounted ? (
-        <div key={singleFeed.id} className="flow-container">
-          <div className="flow-wrap">{singleFeed.alert["transit_realtime.mercury_alert"].alert_type} {singleFeed.alert.header_text.translation[0].text}</div>
+        <div className="flow-container">
+          <div key={singleFeed.id} className="flow-text alert alert-danger col-12" role="alert">
+            <div className="flow-wrap text-nowrap text-overflow">{singleFeed.alert["transit_realtime.mercury_alert"].alert_type} {singleFeed.alert.header_text.translation[0].text}</div>
+          </div>
         </div>
       ) : (
         <div>
