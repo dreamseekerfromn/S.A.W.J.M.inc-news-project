@@ -6,7 +6,7 @@ const NavBar = () => {
     const [sidebar, setSidebar] = useState(false);
 
   const toggleSidebar = () => {
-    setSidebar(!sidebarOpen);
+    setSidebar(!sidebar);
   };
 
   return (
@@ -20,7 +20,7 @@ const NavBar = () => {
           className={`news-logo ${sidebar ? "d-none" : ""}`}
           src="https://www.freeiconspng.com/uploads/news-icon-18.png"
           alt="news-logo"
-          width="120"
+          width="110"
           height="30"
         />
       </Link>
@@ -37,6 +37,16 @@ const NavBar = () => {
           <li className="nav-item">
             <Link to="/about" className="nav-link">
               About
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/weather" className="nav-link">
+              Weather
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/bus" className="nav-link">
+              Bus
             </Link>
           </li>
         </ul>

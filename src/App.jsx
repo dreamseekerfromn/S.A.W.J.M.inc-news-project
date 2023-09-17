@@ -3,6 +3,7 @@ import Newspage from "./componets/Newspage";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import NavBar from "./componets/NavBar"
 import AboutMe from "./componets/AboutMe";
+import NewsSearch from "./componets/NewsSearch";
 
 function App() {
   const NEWS = import.meta.env.VITE_NEWS_KEY;

@@ -76,7 +76,7 @@ const AboutMe = () => {
                   <h5 className="card-title">{`Aisha Kleemoff`}</h5>
                   <p className="card-text">Software Engineer</p>
                   <a
-                    href="https://www.linkedin.com/in/tonesha-rose-53321a273/"
+                    href="https://www.linkedin.com/in/aisha-kleemoff-16b49122b/"
                     className="card-link"
                   >
                     Linkedin
