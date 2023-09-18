@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import Newspage from "./componets/Newspage";
+import Newspage from "./components/Newspage";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import NavBar from "./componets/NavBar"
-import AboutMe from "./componets/AboutMe";
-import NewsSearch from "./componets/NewsSearch";
+import NavBar from "./components/NavBar"
+import AboutMe from "./components/AboutMe";
+import NewsSearch from "./components/NewsSearch";
 import MTA from './components/MTA'
 import MTAHeadline from './components/MTAHeadline'
 
@@ -18,6 +18,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Newspage NEWS={NEWS} />} />
           <Route path="/about" element={<AboutMe />} />
+          <Route path="/bus" element={<MTAHeadline />} />
         </Routes>
       </div>
     </Router>
