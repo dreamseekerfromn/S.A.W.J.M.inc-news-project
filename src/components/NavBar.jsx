@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
@@ -40,7 +39,7 @@ const NavBar = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/weather" className="nav-link">
+            <Link to="/currentWeather" className="nav-link">
               Weather
             </Link>
           </li>

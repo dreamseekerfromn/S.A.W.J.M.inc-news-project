@@ -1,3 +1,5 @@
+const GEO_API_KEy = import.meta.env.VITE_GEO_API_KEY
+
 export const geoApiOptions = {
   method: "GET",
   headers: {
