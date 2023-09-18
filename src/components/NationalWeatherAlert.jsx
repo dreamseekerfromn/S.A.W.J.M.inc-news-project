@@ -127,13 +127,17 @@ export default function NationalWeatherAlert(){
     return(
         <div>
             {mounted ? weatherAlert.features.map(feed => (
-            <div key={feed["properties"]["id"]}>
-                <div className="weather-alert-area">Area:{feed["properties"]["areaDesc"]}</div>
-                
-                <div>Title:{feed["properties"]["headline"]}</div>
-                <div>{feed["properties"]["description"]}</div>
-
-                <div>{feed["properties"]["instruction"]}</div>
+            <div key={feed["properties"]["id"]} className="card">
+                <div className="card-body">
+                    <div className="card-title weather-alert-area">Area:{feed["properties"]["areaDesc"]}</div>
+                    
+                    <div className="card-title">{feed["properties"]["headline"]}</div>
+                    <div className="card-body">
+                        <div>{feed["properties"]["description"]}</div>
+                        <br />
+                        <div>{feed["properties"]["instruction"]}</div>
+                    </div>
+                </div>
             </div>)) : (<div>There is no weather alert in NY area</div>)}
         </div>
     )
