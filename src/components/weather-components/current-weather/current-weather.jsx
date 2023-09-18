@@ -1,6 +1,6 @@
 import "./current-weather.css";
 import Search from "../search/search.jsx";
-import NationalWeatherAlert from './NationalWeatherAlert';
+import NationalWeatherAlert from "../../NationalWeatherAlert";
 
 
 const CurrentWeather = () => {
