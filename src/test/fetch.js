@@ -6,5 +6,5 @@ export async function mtaBusApi(){
 }
 
 export async function nationalWeatherAPI(){
-    return await fetch("https://api.weather.gov/alerts/active?area=FL").catch(err => console.error(err));
+    return await fetch("https://api.weather.gov/alerts/active?area=NY").catch(err => console.error(err));
 }
