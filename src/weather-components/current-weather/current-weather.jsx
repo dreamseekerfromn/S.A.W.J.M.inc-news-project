@@ -1,9 +1,10 @@
 import "./current-weather.css";
-import Search from "../search/search.jsx";
+import Search from "../search/Search.jsx";
 
 const CurrentWeather = () => {
   return (
     <div className="weather">
+      <Search />
       <div className="top"></div>
       <div className="bottom">
         <h1 className="heading">Your Local Weather</h1>
@@ -12,8 +13,8 @@ const CurrentWeather = () => {
       </div>
       <img
         alt="weather"
-        className="weather-icon"
-        src="icons/weather-symbol.png"
+        className="currentWeather-icon"
+        src="weather-icons/weather-symbol.png"
       />
     </div>
   );

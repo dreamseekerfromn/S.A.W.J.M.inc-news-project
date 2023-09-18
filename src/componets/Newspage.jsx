@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from "react";
 import NewsSearch from "./NewsSearch";
+import Search from "../weather-components/search/Search";
 
-const News = ({ NEWS }) => {
+const News = ({ NEWS, onSearchChange }) => {
   const [newsData, setNewsData] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedCountry, setSelectedCountry] = useState("all");
+  const [searchResults, setSearchResults] = useState([]);
 
   useEffect(() => {
-    // const URL = `https://newsapi.org/v2/top-headlines/sources?&apiKey=${NEWS}`;
+    const URL = `https://newsapi.org/v2/top-headlines/sources?country=${
+      selectedCountry === "us" ? "us" : ""
+    }&apiKey=${NEWS}`;
 
     fetch(URL, {
       method: "GET",
@@ -27,7 +31,20 @@ const News = ({ NEWS }) => {
       .catch((error) => {
         console.error("Error:", error);
       });
-  }, [NEWS]);
+  }, [NEWS, selectedCountry]);
+
+  const handleSearch = (searchedText) => {
+    const filteredArticles = newsData?.sources
+      ? newsData.sources.filter(
+          (source) =>
+            source.name.toLowerCase().includes(searchedText.toLowerCase()) ||
+            source.description
+              .toLowerCase()
+              .includes(searchedText.toLowerCase())
+        )
+      : [];
+    setSearchResults(filteredArticles);
+  };
 
   const uniqueCategories = newsData?.sources
     ? [...new Set(newsData.sources.map((source) => source.category))]
@@ -38,18 +55,40 @@ const News = ({ NEWS }) => {
         selectedCategory ? source.category === selectedCategory : true
       )
     : [];
-
-  const filteredByNation = filteredSources.filter((source) =>
-    selectedCountry === "all"
-      ? true
-      : source.country.toLowerCase() === "us"
-  );
+  const renderArticles = () => {
+    const articlesToRender =
+      searchResults.length > 0 ? searchResults : filteredSources;
+    return articlesToRender.map((source) => (
+      <div
+        key={source.id}
+        className="col-md-4 mb-4"
+        style={{ width: "60 rem" }}
+      >
+        <div className="card">
+          <div className="card-body">
+            <h5 className="card-title">{source.name}</h5>
+            <h6 className="card-subtitle mb-2 text-muted">{source.category}</h6>
+            <p className="card-text">{source.description}</p>
+            <a
+              href={source.url}
+              className="card-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Read More
+            </a>
+          </div>
+        </div>
+      </div>
+    ));
+  };
 
   return (
     <div className="container mt-4">
-      <h1 className="mb-4">Top Headlines to keep you informed!</h1>
+      <h1 className="mb-4">Top Headlines from Sources</h1>
+      <NewsSearch onSearch={handleSearch} />
+      <Search onSearchChange={onSearchChange} />
       <div className="mb-4">
-      <NewsSearch NEWS={NEWS} />
         <label>Select a category:</label>
         <select
           className="form-select"
@@ -63,41 +102,18 @@ const News = ({ NEWS }) => {
             </option>
           ))}
         </select>
-      </div>
-      <div className="mb-4">
-        <label>Select News Variety:</label>
+        <label>Select a country:</label>
         <select
           className="form-select"
           value={selectedCountry}
           onChange={(e) => setSelectedCountry(e.target.value)}
         >
-          <option value="all">All</option>
+          <option value="all">All Countries</option>
           <option value="us">United States</option>
         </select>
       </div>
-      <div className="row">
-        {filteredByNation.map((source) => (
-          <div key={source.id} className="col-md-4 mb-4">
-            <div className="card">
-              <div className="card-body">
-                <h5 className="card-title">{source.name}</h5>
-                <h6 className="card-subtitle mb-2 text-muted">
-                  {source.category}
-                </h6>
-                <p className="card-text">{source.description}</p>
-                <a
-                  href={source.url}
-                  className="card-link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Read More
-                </a>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
+      <div className="mb-4"></div>
+      <div className="row">{renderArticles()}</div>
     </div>
   );
 };

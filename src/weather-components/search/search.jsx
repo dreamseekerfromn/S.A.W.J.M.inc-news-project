@@ -7,20 +7,12 @@ const Search = ({ onSearchChange }) => {
 
   const loadOptions = (inputValue) => {
     return fetch(
-      `${GEO_API_URL}/cities?minPopulation=1000000&namePrefix=${inputValue}`,
+      `https://weatherapi-com.p.rapidapi.com/current.json?q=${search}`,
       geoApiOptions
     )
       .then((response) => response.json())
-      .then((response) => {
-        return {
-          options: response.data.map((city) => {
-            return {
-              value: `${city.latitude} ${city.logitude}`,
-              label: `${city.name}, ${city.countryCode}`,
-            };
-          }),
-        };
-      })
+      .then((data) => console.log(data))
+
       .catch((err) => console.error(err));
   };
   const handleOnChange = (searchData) => {
