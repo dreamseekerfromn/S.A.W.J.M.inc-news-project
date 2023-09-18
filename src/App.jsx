@@ -12,17 +12,19 @@ function App() {
   // const BUS = import.meta.env.VITE_API_KEY;
 
   return (
-    <Router>
-      <NavBar />
-      <div className="container">
-        <Routes>
-          <Route path="/" element={<Newspage NEWS={NEWS} />} />
-          <Route path="/about" element={<AboutMe />} />
-          <Route path="/currentWeather" element={<CurrentWeather />} />
-          <Route path="/bus" element={<MTA />} />
-        </Routes>
-      </div>
-    </Router>
+    <div className="wrapper">
+      <Router>
+        <NavBar />
+        <div className="container">
+          <Routes>
+            <Route path="/" element={<Newspage NEWS={NEWS} />} />
+            <Route path="/about" element={<AboutMe />} />
+            <Route path="/currentWeather" element={<CurrentWeather />} />
+            <Route path="/bus" element={<MTA />} />
+          </Routes>
+        </div>
+      </Router>
+    </div>
   );
 }
 

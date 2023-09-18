@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { mtaBusApi } from '../test/fetch';
+import NationalWeatherAlert from './NationalWeatherAlert';
 
 function MTA() {
     /** declare state hooks */
@@ -106,6 +107,7 @@ function MTA() {
                     <div key={elem.id + "description"} dangerouslySetInnerHTML={{__html:elem.alert["description_text"].translation[1].text}} className="card-text"></div>
                 </div>
             )) : (<div><p>still loading</p></div>)}
+            <NationalWeatherAlert />
         </>
     )
 }
