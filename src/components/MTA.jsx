@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 import { mtaBusApi } from '../test/fetch';
+import NationalWeatherAlert from './NationalWeatherAlert';
+import MTAAlertCard from './MTAAlertCard';
 
 function MTA() {
     /** declare state hooks */
@@ -69,6 +71,7 @@ function MTA() {
       },
     ]);
     const [loaded, setLoaded] = useState(false);
+    
 
     /** fetch data from the API */
     useEffect(()=>{
@@ -99,13 +102,10 @@ function MTA() {
 
     return(
         <>
-            {loaded ? data.map((elem, index) => (
-                <div key={elem.id} className="card" style={{width: "18rem"}}>
-                    <h5 key={elem.id + "alerttype"} className="card-title">{elem.alert["transit_realtime.mercury_alert"]["alert_type"]}</h5>
-                    <div key={elem.id + "text"} dangerouslySetInnerHTML={{__html:elem.alert.header_text.translation[1].text}} className="card-text"></div>
-                    <div key={elem.id + "description"} dangerouslySetInnerHTML={{__html:elem.alert["description_text"].translation[1].text}} className="card-text"></div>
-                </div>
+            {loaded ? data.map((elem) => (
+                <MTAAlertCard alertFeed={elem} />
             )) : (<div><p>still loading</p></div>)}
+            <NationalWeatherAlert />
         </>
     )
 }
