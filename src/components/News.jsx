@@ -10,7 +10,7 @@ const News = ({ NEWS }) => {
   useEffect(() => {
 
     const URL = `https://newsapi.org/v2/top-headlines/sources?country=${selectedCountry === "us" ? "us" : ""}&apiKey=${NEWS}`;
-
+    
     fetch(URL, {
       method: "GET",
       headers: {
@@ -23,9 +23,7 @@ const News = ({ NEWS }) => {
         }
         return response.json();
       })
-      .then((responseData) => {
-        setNewsData(responseData);
-      })
+      .then((responseData) => setNewsData(responseData))
       .catch((error) => {
         console.error("Error:", error);
       });
@@ -79,7 +77,6 @@ const News = ({ NEWS }) => {
     <div className="container mt-4">
       <h1 className="mb-4">Top Headlines from Sources</h1>
       <NewsSearch onSearch={handleSearch} />
-    
       <div className="mb-4">
       <label>Select a category:</label>
         <select
