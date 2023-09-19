@@ -3,7 +3,6 @@ import Search from "../search/search.jsx";
 import NationalWeatherAlert from "../../NationalWeatherAlert";
 import {useState, useEffect} from 'react';
 
-
 const CurrentWeather = () => {
   const [weather, setWeather] = useState({
     "location": {
