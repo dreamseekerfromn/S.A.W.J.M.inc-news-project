@@ -153,9 +153,11 @@ function MTAHeadline() {
 
   /** fetch data from the API */
   useEffect(() => {
-    try{
+    try {
       getDataFromAPI();
-    } catch{ err => console.error(err); }
+    } catch {
+      (err) => console.error(err);
+    }
   }, []);
 
   /** if data is loaded, loaded to be true */
@@ -167,7 +169,7 @@ function MTAHeadline() {
       } else {
         setLoaded(false);
       }
-    },3000);
+    }, 3000);
 
     return () => clearTimeout(timeout);
   }, [data]);
@@ -183,7 +185,13 @@ function MTAHeadline() {
         getDataFromAPI();
       }, 1800000);
 
-      timerRef.current = setInterval(() => setSingleFeed(Object.assign({}, data[Math.floor(Math.random() * data.length)])), 20000);
+      timerRef.current = setInterval(
+        () =>
+          setSingleFeed(
+            Object.assign({}, data[Math.floor(Math.random() * data.length)])
+          ),
+        20000
+      );
 
       return () => {
         clearInterval(timerRef.current);
@@ -204,8 +212,15 @@ function MTAHeadline() {
     <>
       {mounted ? (
         <div className="flow-container">
-          <div key={singleFeed.id} className="flow-text alert alert-danger col-12" role="alert">
-            <div className="flow-wrap text-nowrap text-overflow">{singleFeed.alert["transit_realtime.mercury_alert"].alert_type} {singleFeed.alert.header_text.translation[0].text}</div>
+          <div
+            key={singleFeed.id}
+            className="flow-text alert alert-danger col-12"
+            role="alert"
+          >
+            <div className="flow-wrap text-nowrap text-overflow">
+              {singleFeed.alert["transit_realtime.mercury_alert"].alert_type}{" "}
+              {singleFeed.alert.header_text.translation[0].text}
+            </div>
           </div>
         </div>
       ) : (

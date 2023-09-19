@@ -109,7 +109,7 @@ const AboutMe = () => {
                   </a>
                   <br />
                   <a
-                    href=""
+                    href="https://github.com/winder809"
                     className="card-link"
                   >
                     Github
@@ -137,7 +137,7 @@ const AboutMe = () => {
                   </a>
                   <br />
                   <a
-                    href=""
+                    href="https://github.com/MichaelRMC"
                     className="card-link"
                   >
                     Github
