@@ -27,13 +27,16 @@ const Search = ({ onSearch }) => {
   };
 
   return (
-    <AsyncPaginate
+    <>
+    
+    {/*<AsyncPaginate
       placeholder="New_York"
       debounceTimeout={600}
       value={search}
       onChange={handleOnChange}
       loadOptions={loadOptions}
-    />
+  />*/}
+  </>
   );
 };
 
