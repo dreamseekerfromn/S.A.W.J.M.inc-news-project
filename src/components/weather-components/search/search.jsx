@@ -9,10 +9,10 @@ const Search = ({ onSearch }) => {
     loadOptions();
   },[])
 
-  const loadOptions = async (inputValue = "New York") => {
+  const loadOptions = async (inputValue = "New_York") => {
     try {
       const response = await fetch(
-        `${GEO_API_URL}/q=${inputValue}`,
+        `${GEO_API_URL}?q=${inputValue}`,
         geoApiOptions
       );
       const response_1 = await response.json();
@@ -38,5 +38,3 @@ const Search = ({ onSearch }) => {
 };
 
 export default Search;
-
-// followed some ideas from React JS Tutorial - Build a Weather App with Cities Autocomplete - freeCodeCamp

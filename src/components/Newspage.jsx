@@ -77,7 +77,7 @@ const News = ({ NEWS }) => {
 
   return (
     <div className="container mt-4">
-      <h1 className="mb-4">Top Headlines from Sources</h1>
+      <h1 className="mb-4">Top Headlines to keep you informed!</h1>
       <NewsSearch onSearch={handleSearch} />
     
       <div className="mb-4">
