@@ -11,7 +11,7 @@ export default function MTAAlertCard({ alertFeed }) {
   return (
     <div
       key={alertFeed.id}
-      className="card col-3 px-4 gx-1 alert-card"
+      className="card col-3 m-2 alert-card"
       style={{ width: "18rem" }}
       onClick={() => handleOnClick()}
     >
