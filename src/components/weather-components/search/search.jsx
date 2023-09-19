@@ -1,27 +1,25 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { AsyncPaginate } from "react-select-async-paginate";
 import { GEO_API_URL, geoApiOptions } from "../api";
 
-const Search = ({ onSearchChange }) => {
+const Search = ({ onSearch }) => {
   const [search, setSearch] = useState(null);
+  
+  useEffect(()=>{
+    loadOptions();
+  },[])
 
-  const loadOptions = (inputValue) => {
-    return fetch(
-      `${GEO_API_URL}/cities?minPopulation=1000000&namePrefix=${inputValue}`,
-      geoApiOptions
-    )
-      .then((response) => response.json())
-      .then((response) => {
-        return {
-          options: response.data.map((city) => {
-            return {
-              value: `${city.latitude} ${city.logitude}`,
-              label: `${city.name}, ${city.countryCode}`,
-            };
-          }),
-        };
-      })
-      .catch((err) => console.error(err));
+  const loadOptions = async (inputValue = "New York") => {
+    try {
+      const response = await fetch(
+        `${GEO_API_URL}/q=${inputValue}`,
+        geoApiOptions
+      );
+      const response_1 = await response.json();
+      onSearch({...response_1});
+    } catch (err) {
+      return console.error(err);
+    }
   };
   const handleOnChange = (searchData) => {
     setSearch(searchData);
@@ -30,7 +28,7 @@ const Search = ({ onSearchChange }) => {
 
   return (
     <AsyncPaginate
-      placeholder="Search for city"
+      placeholder="New_York"
       debounceTimeout={600}
       value={search}
       onChange={handleOnChange}
