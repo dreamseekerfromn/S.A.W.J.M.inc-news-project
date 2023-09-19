@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { mtaBusApi } from "../test/fetch";
-import NationalWeatherAlert from "./NationalWeatherAlert";
 import MTAAlertCard from "./MTAAlertCard";
 
 function MTA() {
@@ -90,7 +89,7 @@ function MTA() {
   /** if data is loaded, loaded to be true */
   useEffect(() => {
     const timeout = setTimeout(() => {
-      if (data.length != 0 && data[0].id) {
+      if (data.length != 0 && data[0].id != "") {
         setLoaded(true);
       } else {
         setLoaded(false);
@@ -101,16 +100,17 @@ function MTA() {
   }, [data]);
 
   return (
-    <>
-      {loaded ? (
-        data.map((elem) => <MTAAlertCard alertFeed={elem} />)
-      ) : (
-        <div>
-          <p>still loading</p>
-        </div>
-      )}
-      <NationalWeatherAlert />
-    </>
+    <div className="container w-100">
+      <div className="row">
+        {loaded ? (
+          data.map((elem) => <MTAAlertCard alertFeed={elem} />)
+        ) : (
+          <div>
+            <p>still loading</p>
+          </div>
+        )}
+      </div>
+    </div>
   );
 }
 
