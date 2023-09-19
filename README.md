@@ -26,6 +26,10 @@ This web application provides you with up-to-date news articles, current weather
 
 ## Getting Started
 
+[Visit Site here](https://lovely-crumble-4b5d0d.netlify.app/)
+
+Or 
+
 To run this application locally, follow these steps:
 
 1. Clone this repository to your local machine.
