@@ -15,8 +15,8 @@ const Search = ({ onSearch }) => {
         `${GEO_API_URL}?q=${inputValue}`,
         geoApiOptions
       );
-      console.log(response.json())
-      onSearch({...response});
+      const response_1 = await response.json();
+      onSearch({...response_1});
     } catch (err) {
       return console.error(err);
     }
