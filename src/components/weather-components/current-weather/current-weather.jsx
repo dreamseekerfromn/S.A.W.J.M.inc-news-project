@@ -23,7 +23,7 @@ const CurrentWeather = () => {
         "is_day": 0,
         "condition": {
             "text": "",
-            "icon": "//cdn.weatherapi.com/weather/64x64/night/113.png",
+            "icon": "",
             "code": 0
         },
         "wind_mph": 0,
@@ -47,18 +47,8 @@ const CurrentWeather = () => {
   });
   const [loaded, setLoaded] = useState(false);
 
-  useEffect(()=>{
-    if(weather.location.name){
-      setLoaded(true)
-    }
-    else{
-      setLoaded(false)
-    }
-  },[]);
-
   return (
     <>
-      {loaded ? (
       <div className="weather">
         <div className="top">
           <Search onSearch={setWeather}/>
@@ -73,7 +63,7 @@ const CurrentWeather = () => {
           className="weather-icon"
           src={`https:${weather["current"]["condition"]["icon"]}`}
         />
-      </div>) : (<p>loading</p>)}
+      </div>
       <NationalWeatherAlert />
     </>
   );

@@ -9,14 +9,14 @@ const Search = ({ onSearch }) => {
     loadOptions();
   },[])
 
-  const loadOptions = async (inputValue = "New York") => {
+  const loadOptions = async (inputValue = "New_York") => {
     try {
       const response = await fetch(
-        `${GEO_API_URL}/q=${inputValue}`,
+        `${GEO_API_URL}?q=${inputValue}`,
         geoApiOptions
       );
-      const response_1 = await response.json();
-      onSearch({...response_1});
+      console.log(response.json())
+      onSearch({...response});
     } catch (err) {
       return console.error(err);
     }
