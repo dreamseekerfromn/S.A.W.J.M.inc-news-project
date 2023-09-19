@@ -38,5 +38,3 @@ const Search = ({ onSearch }) => {
 };
 
 export default Search;
-
-// followed some ideas from React JS Tutorial - Build a Weather App with Cities Autocomplete - freeCodeCamp
