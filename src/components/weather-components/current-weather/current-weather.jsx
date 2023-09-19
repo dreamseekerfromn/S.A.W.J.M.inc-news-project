@@ -23,7 +23,7 @@ const CurrentWeather = () => {
         "is_day": 0,
         "condition": {
             "text": "",
-            "icon": "//cdn.weatherapi.com/weather/64x64/night/113.png",
+            "icon": "",
             "code": 0
         },
         "wind_mph": 0,
@@ -46,7 +46,6 @@ const CurrentWeather = () => {
     }
   });
   const [loaded, setLoaded] = useState(false);
-
 
   return (
     <>
