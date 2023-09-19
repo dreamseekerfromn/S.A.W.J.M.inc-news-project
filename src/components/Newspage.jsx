@@ -1,5 +1,9 @@
 import { useEffect, useState } from "react";
 import NewsSearch from "./NewsSearch";
+import MyCarousel from "./MyCarousel";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Carousel } from "bootstrap";
+
 
 const News = ({ NEWS }) => {
   const [newsData, setNewsData] = useState(null);
@@ -77,6 +81,7 @@ const News = ({ NEWS }) => {
 
   return (
     <div className="container mt-4">
+      <MyCarousel />
       <h1 className="mb-4">Top Headlines to keep you informed!</h1>
       <NewsSearch onSearch={handleSearch} />
     
