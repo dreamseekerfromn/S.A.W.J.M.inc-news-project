@@ -2,7 +2,6 @@ import "./current-weather.css";
 import Search from "../search/search.jsx";
 import NationalWeatherAlert from "../../NationalWeatherAlert";
 
-
 const CurrentWeather = () => {
   return (
     <>
@@ -18,7 +17,7 @@ const CurrentWeather = () => {
         <img
           alt="weather"
           className="weather-icon"
-          src="icons/weather-symbol.png"
+          src="weather-icons/weather-symbol.png"
         />
       </div>
       <NationalWeatherAlert />
