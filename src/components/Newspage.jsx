@@ -3,6 +3,7 @@ import NewsSearch from "./NewsSearch";
 import MyCarousel from "./MyCarousel";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Carousel } from "bootstrap";
+import "./Newspage.css"
 
 
 const News = ({ NEWS }) => {
@@ -81,38 +82,48 @@ const News = ({ NEWS }) => {
 
   return (
     <div className="container mt-4">
-      <MyCarousel />
-      <h1 className="mb-4">Top Headlines to keep you informed!</h1>
-      <NewsSearch onSearch={handleSearch} />
-    
-      <div className="mb-4">
-      <label>Select a category:</label>
-        <select
-          className="form-select"
-          value={selectedCategory}
-          onChange={(e) => setSelectedCategory(e.target.value)}
-        >
-          <option value="">All Categories</option>
-          {uniqueCategories.map((category, index) => (
-            <option key={index} value={category}>
-              {category}
-            </option>
-          ))}
-        </select>
-        <label>Select a country:</label>
-        <select
-          className="form-select"
-          value={selectedCountry}
-          onChange={(e) => setSelectedCountry(e.target.value)}
-        >
-          <option value="all">All Countries</option>
-          <option value="us">United States</option>
-        </select>
+      <div className="row">
+        <div className="container md-1 d-flex" style={{justifyContent:"center"}}>
+          <div className="col-10 carousel align-items-center">
+            <MyCarousel />
+          </div>
+        </div>
+      </div>
+      <div className="row">
+        <h1 className="mb-4">Top Headlines to keep you informed!</h1>
+        <NewsSearch onSearch={handleSearch} />
+      
+        <div className="mb-4">
+        <label>Select a category:</label>
+          <select
+            className="form-select"
+            value={selectedCategory}
+            onChange={(e) => setSelectedCategory(e.target.value)}
+          >
+            <option value="">All Categories</option>
+            {uniqueCategories.map((category, index) => (
+              <option key={index} value={category}>
+                {category}
+              </option>
+            ))}
+          </select>
+          <label>Select a country:</label>
+          <select
+            className="form-select"
+            value={selectedCountry}
+            onChange={(e) => setSelectedCountry(e.target.value)}
+          >
+            <option value="all">All Countries</option>
+            <option value="us">United States</option>
+          </select>
+        </div>
       </div>
       <div className="mb-4">
       </div>
       <div className="row">
-        {renderArticles()}
+        <div className="row">
+          {renderArticles()}
+        </div>
       </div>
     </div>
   );
