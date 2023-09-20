@@ -5,7 +5,7 @@
 
 [[redirects]]
   from = "/"
-  to = "https://newsapi.org/v2/top-headlines/"
+  to = "https://newsapi.org/v2/top-headlines/sources?country="
   status = 200
   force = true
   headers = {X-From = "Netlify"}
