@@ -1,3 +1,5 @@
 .alert-card {
   cursor:pointer;
+  box-shadow: gray 2px 2px 2px 2px;
 }
+
