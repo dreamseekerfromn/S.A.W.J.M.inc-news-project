@@ -28,7 +28,6 @@ const Search = ({ onSearch }) => {
 
   return (
     <>
-    
     {/*<AsyncPaginate
       placeholder="New_York"
       debounceTimeout={600}

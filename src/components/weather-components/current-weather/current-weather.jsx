@@ -57,6 +57,8 @@ const CurrentWeather = () => {
           <h1 className="heading">Your Local Weather</h1>
           <p className="city">{weather["location"]["name"]}</p>
           <p className="weather-description">{weather["current"]["condition"]["text"]}</p>
+          <p className="temperature">{weather["current"]["temp_f"]} F°</p>
+          <p className="feels_like">Feels like {weather["current"]["feelslike_f"]} F°</p>
         </div>
         <img
           alt="weather"
