@@ -45,27 +45,44 @@ const CurrentWeather = () => {
         "gust_kph": 0.0
     }
   });
-  const [loaded, setLoaded] = useState(false);
+  const [toggleAlert, setToggleAlert] = useState(false);
+
+  function handleToggleAlert(){
+    setToggleAlert(!toggleAlert);
+  }
 
   return (
     <>
       <div className="weather">
-        <div className="top">
-          <Search onSearch={setWeather}/>
+        <h1 className="heading">Your Local Weather</h1>
+        <br />
+        <div className="row">
+          <div className="col-4 p-3">
+            <div className="top">
+              <Search onSearch={setWeather}/>
+            </div>
+            <div className="bottom">
+              <p className="city">{weather["location"]["name"]}</p>
+              <br />
+              <p className="weather-description">{weather["current"]["condition"]["text"]}</p>
+              <p className="temperature">{weather["current"]["temp_f"]} F°</p>
+              <p className="feels_like">Feels like {weather["current"]["feelslike_f"]} F°</p>
+            </div>
+          </div>
+          <div className="col-8">
+            <img
+              alt="weather"
+              className="weather-icon"
+              src={`https:${weather["current"]["condition"]["icon"]}`}
+            />
+          </div>
         </div>
-        <div className="bottom">
-          <h1 className="heading">Your Local Weather</h1>
-          <p className="city">{weather["location"]["name"]}</p>
-          <p className="weather-description">{weather["current"]["condition"]["text"]}</p>
-          <p className="temperature">{weather["current"]["temp_f"]} F°</p>
-          <p className="feels_like">Feels like {weather["current"]["feelslike_f"]} F°</p>
+        <div className="row">
+          <button className="toggle_alert" onClick={() => handleToggleAlert()}>Alert</button>
+            {toggleAlert ?
+              (<NationalWeatherAlert />) : null
+            }
         </div>
-        <img
-          alt="weather"
-          className="weather-icon"
-          src={`https:${weather["current"]["condition"]["icon"]}`}
-        />
-        <NationalWeatherAlert />
       </div>
     </>
   );
