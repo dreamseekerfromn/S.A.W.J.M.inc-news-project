@@ -8,6 +8,7 @@ export default function MTAAlertCard({ alertFeed }) {
   const alertType =  alertFeed.alert["transit_realtime.mercury_alert"]["alert_type"];
   const alertHeader = alertFeed.alert.header_text;
   const alertDesc = alertFeed.alert["description_text"];
+  const alertRoute = alertFeed.alert.informed_entity;
 
   function handleOnClick() {
     setToggle(!toggle);
@@ -31,9 +32,15 @@ export default function MTAAlertCard({ alertFeed }) {
                 alertType == "Multiple Changes" ? {color: "red"} : {color: "black"}}>
         {alertType}
       </h5>
+
+      <div className="card-text">
+        <strong>Route: </strong>{alertRoute.map((route) => (<>{route.route_id} </>))}
+      </div>
+      <br />
       <div
         key={alertFeed.id + "text"} className="card-text"
       >{alertHeader ? alertHeader.translation[0].text : null}</div>
+      <br />
       {toggle ? (
         alertFeed.description_text ? (
         <div
