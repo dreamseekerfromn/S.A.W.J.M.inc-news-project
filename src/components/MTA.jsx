@@ -101,7 +101,7 @@ function MTA() {
 
   return (
     <div className="container w-100">
-      <div className="row">
+      <div className="row" key="MTA_container_row">
         {loaded ? (
           data.map((elem) => <MTAAlertCard alertFeed={elem} />)
         ) : (

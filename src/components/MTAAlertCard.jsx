@@ -4,6 +4,11 @@ import "../App.css";
 export default function MTAAlertCard({ alertFeed }) {
   const [toggle, setToggle] = useState(false);
 
+  //alert -> header, description, transit_blah...
+  const alertType =  alertFeed.alert["transit_realtime.mercury_alert"]["alert_type"];
+  const alertHeader = alertFeed.alert.header_text;
+  const alertDesc = alertFeed.alert["description_text"];
+
   function handleOnClick() {
     setToggle(!toggle);
   }
@@ -15,24 +20,26 @@ export default function MTAAlertCard({ alertFeed }) {
       style={{ width: "18rem" }}
       onClick={() => handleOnClick()}
     >
-      <h5 key={alertFeed.id + "alerttype"} className="card-title">
-        {alertFeed.alert["transit_realtime.mercury_alert"]["alert_type"]}
+      <h5 
+        key={alertFeed.id + "alerttype"} 
+        className="card-title" 
+        style={ alertType == "Delays" ? {color:"#00A36C"} : 
+                alertType == "Special Event" ? {color: "red"} :
+                alertType == "Buses Detoured" ? {color: "red"} :
+                alertType == "Expect Delays" ? {color: "#00A36C"} :
+                alertType == "Boarding Change" ? {color: "red"} :
+                alertType == "Multiple Changes" ? {color: "red"} : {color: "black"}}>
+        {alertType}
       </h5>
       <div
-        key={alertFeed.id + "text"}
-        dangerouslySetInnerHTML={{
-          __html: alertFeed.alert.header_text.translation[1].text,
-        }}
-        className="card-text"
-      ></div>
+        key={alertFeed.id + "text"} className="card-text"
+      >{alertHeader ? alertHeader.translation[0].text : null}</div>
       {toggle ? (
+        alertFeed.description_text ? (
         <div
-          key={alertFeed.id + "description"}
-          dangerouslySetInnerHTML={{
-            __html: alertFeed.alert["description_text"].translation[1].text,
-          }}
-          className="card-text"
-        ></div>
+          key={alertFeed.id + "description"} className="card-text">
+            {alertDesc.translation[0].text}
+        </div>) : (null) 
       ) : null}
     </div>
   );
