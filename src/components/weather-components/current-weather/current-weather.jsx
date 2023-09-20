@@ -65,8 +65,8 @@ const CurrentWeather = () => {
           className="weather-icon"
           src={`https:${weather["current"]["condition"]["icon"]}`}
         />
+        <NationalWeatherAlert />
       </div>
-      <NationalWeatherAlert />
     </>
   );
 };
