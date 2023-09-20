@@ -24,12 +24,13 @@ export default function MTAAlertCard({ alertFeed }) {
       <h5 
         key={alertFeed.id + "alerttype"} 
         className="card-title" 
-        style={ alertType == "Delays" ? {color:"#00A36C"} : 
+        style={ alertType == "Delays" ? {color:"gold"} : 
                 alertType == "Special Event" ? {color: "red"} :
-                alertType == "Buses Detoured" ? {color: "red"} :
-                alertType == "Expect Delays" ? {color: "#00A36C"} :
-                alertType == "Boarding Change" ? {color: "red"} :
-                alertType == "Multiple Changes" ? {color: "red"} : {color: "black"}}>
+                alertType == "Buses Detoured" ? {color: "#00A36C"} :
+                alertType == "Expect Delays" ? {color: "gold"} :
+                alertType == "Boarding Change" ? {color: "#00A36C"} :
+                alertType == "Multiple Changes" ? {color: "red"} : 
+                alertType.includes("Planned") ? {color: "skyblue"} : {color: "black"}}>
         {alertType}
       </h5>
 
