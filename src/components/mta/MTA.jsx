@@ -57,8 +57,8 @@ function MTA() {
 
   return (
     <div className="container w-100">
-      <div className="row">
-        <div className="input-group flex-nowrap">
+      <div className="row d-flex justify-content-center mr-3">
+        <div className="input-group flex-nowrap w-50">
           <input
             type="text"
             className="form-control"
