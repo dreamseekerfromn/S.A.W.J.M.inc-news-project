@@ -1,6 +1,6 @@
-import { nationalWeatherAPI } from "../test/fetch";
+import { nationalWeatherAPI } from "../../api/fetch.js";
 import { useState, useEffect } from "react";
-import NationalWeatherAlertCard from "./NationalWeatherAlertCard";
+import NationalWeatherAlertCard from "./NationalWeatherAlertCard.jsx";
 
 export default function NationalWeatherAlert() {
   const [weatherAlert, setWeatherAlert] = useState({

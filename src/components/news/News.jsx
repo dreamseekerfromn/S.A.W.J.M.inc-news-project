@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import NewsSearch from "./NewsSearch";
+import NewsSearch from "./news/NewsSearch";
 
 const News = ({ NEWS }) => {
   const [newsData, setNewsData] = useState(null);
