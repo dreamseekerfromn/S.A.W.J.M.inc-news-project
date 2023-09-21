@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import NewsSearch from "./NewsSearch";
-import MyCarousel from "./MyCarousel";
+import MyCarousel from "../MyCarousel";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Carousel } from "bootstrap";
 import "./Newspage.css"

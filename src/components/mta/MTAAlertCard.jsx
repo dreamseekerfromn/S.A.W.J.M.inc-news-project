@@ -1,6 +1,13 @@
 import { useState } from "react";
-import "../App.css";
+import "../../App.css";
 
+/**
+ * MTAAlertCard()
+ * ================================
+ * a child component of MTA.jsx. This component is pupposed to render single alert feed for its parent.
+ * 
+ * @param {React prop} alertFeed = a state hook from its ancestor, contains all data for single alert feed 
+ */
 export default function MTAAlertCard({ alertFeed }) {
   const [toggle, setToggle] = useState(false);
 
@@ -10,31 +17,36 @@ export default function MTAAlertCard({ alertFeed }) {
   const alertDesc = alertFeed.alert["description_text"];
   const alertRoute = alertFeed.alert.informed_entity;
 
+  /**
+   * handleOnClick()
+   * ========================
+   * change toggle status when a user click single card.
+   */
   function handleOnClick() {
     setToggle(!toggle);
   }
-
+  
   return (
     <div
-      key={alertFeed.id}
-      className="card col-3 m-2 alert-card"
-      style={{ width: "18rem" }}
-      onClick={() => handleOnClick()}
+    key={alertFeed.id}
+    className="card col-3 m-2 alert-card"
+    style={{ width: "18rem" }}
+    onClick={() => handleOnClick()}
     >
       <h5 
         key={alertFeed.id + "alerttype"} 
         className="card-title" 
         style={ alertType == "Delays" ? {color:"gold"} : 
-                alertType == "Special Event" ? {color: "red"} :
-                alertType == "Buses Detoured" ? {color: "#00A36C"} :
-                alertType == "Expect Delays" ? {color: "gold"} :
-                alertType == "Boarding Change" ? {color: "#00A36C"} :
-                alertType == "Multiple Changes" ? {color: "red"} : 
-                alertType.includes("Planned") ? {color: "skyblue"} : {color: "black"}}>
+        alertType == "Special Event" ? {color: "red"} :
+        alertType == "Buses Detoured" ? {color: "#00A36C"} :
+        alertType == "Expect Delays" ? {color: "gold"} :
+        alertType == "Boarding Change" ? {color: "#00A36C"} :
+        alertType == "Multiple Changes" ? {color: "red"} : 
+        alertType.includes("Planned") ? {color: "skyblue"} : {color: "black"}}>
         {alertType}
       </h5>
 
-      <div className="card-text">
+      <div className="card-text" key={alertFeed.id+"route"}>
         <strong>Route: </strong>{alertRoute.map((route) => (<>{route.route_id} </>))}
       </div>
       <br />

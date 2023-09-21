@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
-import { mtaBusApi } from "../test/fetch";
+import { mtaBusApi } from "../../api/fetch";
 import "./MTAHeadline.css";
-import NationalWeatherAlert from "./NationalWeatherAlert";
+import NationalWeatherAlert from "../weather-components/NationalWeatherAlert";
 
 function MTAHeadline() {
   /** declare state hooks */
