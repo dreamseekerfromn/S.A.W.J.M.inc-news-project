@@ -1,5 +1,8 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
+import Button from 'react-bootstrap/Button';
+import Overlay from 'react-bootstrap/Overlay';
 import "../../App.css";
+import { wrap } from "lodash";
 
 /**
  * MTAAlertCard()
@@ -10,6 +13,8 @@ import "../../App.css";
  */
 export default function MTAAlertCard({ alertFeed }) {
   const [toggle, setToggle] = useState(false);
+  const [show, setShow] = useState(false);
+  const target = useRef(null);
 
   //alert -> header, description, transit_blah...
   const alertType =  alertFeed.alert["transit_realtime.mercury_alert"]["alert_type"];
@@ -54,12 +59,39 @@ export default function MTAAlertCard({ alertFeed }) {
         key={alertFeed.id + "text"} className="card-text"
       >{alertHeader ? alertHeader.translation[0].text : null}</div>
       <br />
-      {toggle ? (
-        alertFeed.description_text ? (
-        <div
-          key={alertFeed.id + "description"} className="card-text">
-            {alertDesc.translation[0].text}
-        </div>) : (null) 
+      {alertDesc ? (
+        <>
+          <Button variant="danger" ref={target} onClick={() => setShow(!show)}>
+            Description
+          </Button>
+          <Overlay target={target.current} show={show} placement="right">
+            {({
+              placement: _placement,
+              arrowProps: _arrowProps,
+              show: _show,
+              popper: _popper,
+              hasDoneInitialMeasure: _hasDoneInitialMeasure,
+              ...props
+            }) => (
+              <div
+                {...props}
+                style={{
+                  position: 'absolute',
+                  backgroundColor: 'rgba(255, 100, 100, 0.85)',
+                  padding: '2px 10px',
+                  color: 'white',
+                  borderRadius: 3,
+                  ...props.style,
+                  text: "wrap",
+                  width: "20vw",
+                  fontSize: "12px"
+                }}
+              >
+                {alertDesc.translation[0].text}
+              </div>
+            )}
+          </Overlay>
+      </>
       ) : null}
     </div>
   );
