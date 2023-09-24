@@ -2,7 +2,6 @@ import { useState, useRef } from "react";
 import Button from 'react-bootstrap/Button';
 import Overlay from 'react-bootstrap/Overlay';
 import "../../App.css";
-import { wrap } from "lodash";
 
 /**
  * MTAAlertCard()
@@ -33,10 +32,10 @@ export default function MTAAlertCard({ alertFeed }) {
   
   return (
     <div
-    key={alertFeed.id}
-    className="card col-3 m-2 alert-card"
-    style={{ width: "18rem" }}
-    onClick={() => handleOnClick()}
+      key={alertFeed.id}
+      className="card col-3 m-2 alert-card"
+      style={{ width: "18rem" }}
+      onClick={() => handleOnClick()}
     >
       <h5 
         key={alertFeed.id + "alerttype"} 
