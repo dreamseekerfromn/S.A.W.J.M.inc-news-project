@@ -2,6 +2,9 @@
 
 This web application provides you with up-to-date news articles, current weather information, and alerts for the New York City Metropolitan Transportation Authority (MTA). It is designed to keep you informed about the latest news, weather conditions, and any MTA service alerts. This innovative application combines essential information streams, including news, weather updates, and real-time MTA alerts, into a single, user-friendly platform, making it a one-stop solution for staying informed. While there are various standalone news apps, weather apps, and transportation apps available, our application distinguishes itself by seamlessly integrating these critical functions, providing users with a more efficient and convenient experience. Instead of switching between multiple apps, users can access everything they need in one place, saving time and effort. Additionally, the ability to filter news articles by category and country, search for specific articles, and receive real-time MTA updates makes this app a versatile and superior choice for those living in or traveling to New York City.
 
+For additional details, including group norms and wireframes, visit our trello board.
+[S.A.W.J.M.inc trello board](https://trello.com/b/x5Y616tk/saw-jm-inc)
+
 ## Table of Contents
 
 - [Features](#features)
@@ -77,6 +80,10 @@ About Page: The about page introduces the developers of the application.
 5. OpenWeather API: Provides weather data.
 6. News API: Provides news articles and sources.
 7. Metropolitan Transportation Authority API: Provides MTA service alerts and information.
+
+### Stretch Goal We Made
+
+We have implemented more than 2 APIs. (currently, 4 APIs)
 
 ## Contributors
 
