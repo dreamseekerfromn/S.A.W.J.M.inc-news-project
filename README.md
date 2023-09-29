@@ -4,6 +4,7 @@ This web application provides you with up-to-date news articles, current weather
 
 For additional details, including group norms and wireframes, visit our trello board.
 [S.A.W.J.M.inc trello board](https://trello.com/b/x5Y616tk/saw-jm-inc)
+[Group Norms](https://docs.google.com/document/d/11QHEGXOR4DJFIj0Vpyn8xix1csY4IW3KhTAPkPS-eu4/edit?usp=sharing)
 
 ## Table of Contents
 
